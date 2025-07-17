@@ -76,7 +76,7 @@ CAPTURAS DE PANTALLA
 ![SuperHéroes](screenshots/superheroes-list.PNG)
 
 ### ➕ Crear nuevo héroe  
-![Formulario Crear](./screenshots/Create.png)
+![Formulario Crear](screenshots/Create-Hero.PNG)
 ### ✏️ Editar héroe  
 ![Editar Héroe](./screenshots/Edit.png)
 
