@@ -21,11 +21,9 @@ Aplicación web desarrollada en ASP.NET Core que permite gestionar una lista de 
 2. **Configurar la cadena de conexión:**
 
    Abre el archivo `appsettings.json` y reemplaza el valor de `DefaultConnection` con tu cadena local. Ejemplo:
-
-   ```json
-   "ConnectionStrings": {
-     "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SuperHeroDb;Trusted_Connection=True;"
-   }Aplicar migraciones para inicializar la base de datos:
+"ConnectionStrings": {
+  "DefaultConnection": "Host=localhost;Port=5432;Database=SuperHeroDb;Username=postgres;Password=1313"
+}
 
 3. Abre la consola de administración de paquetes en Visual Studio y ejecuta:
 Ejecutar la aplicación:dotnet ef database update
@@ -78,22 +76,21 @@ CAPTURAS DE PANTALLA
 ### ➕ Crear nuevo héroe  
 ![Formulario Crear](screenshots/Create-Hero.PNG)
 ### ✏️ Editar héroe  
-![Editar Héroe](./screenshots/Edit.png)
+![Editar Héroe](screenshots/Edit-Hero.PNG)
 
 ### 🗑️ Eliminar héroe  
-![Eliminar Héroe](./screenshots/Delete.png)
+![Eliminar Héroe](screenshots/Delete-Hero.PNG)
 
 ### 🐾 Pokémon vía PokeAPI  
-![Pokémon Grid](./screenshots/pokemon-grid.png)
+![Pokémon Grid](screenshots/pokemon-grid.PNG)
 
 ### ❌ Validación de Login  
-![Login Error](./screenshots/login.png)
+![Login Error](screenshots/Login.PNG)
 
 ### 📝 Registro de usuario  
-![Registro](./screenshots/register-form.png)
+![Registro](screenshots/Register.PNG)
 
-### ❌ Validación de Registro  
-![Registro Error](./screenshots/register.png)
+
 
 
 
