@@ -1,0 +1,82 @@
+﻿@model SuperHeroApp.Models.SuperHero
+@using Kendo.Mvc.UI
+
+@{
+    ViewData["Title"] = "Crear SuperHéroe";
+    Layout = "_Layout";
+}
+
+<h1 class="text-center mb-5">@ViewData["Title"]</h1>
+
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-4">
+    <div class="k-card k-shadow pt-4 pb-5 px-4">
+
+      @using (Html.BeginForm("Create", "SuperHeroes", FormMethod.Post, new { @class = "k-form" }))
+      {
+          <div asp-validation-summary="ModelOnly" class="text-danger mb-4"></div>
+
+          <div class="mb-4">
+              @(Html.Kendo()
+                  .TextBoxFor(m => m.Nombre)
+                  .HtmlAttributes(new {
+                      Placeholder="Nombre del héroe",
+                      @class = "k-textbox",
+                      required = "required",
+                      style = "width:100%; max-width:250px;"
+                  }))
+          </div>
+
+          <div class="mb-4">
+              @(Html.Kendo()
+                  .TextBoxFor(m => m.Poder)
+                  .HtmlAttributes(new {
+                      Placeholder="Poder especial",
+                      @class = "k-textbox",
+                      required = "required",
+                      style = "width:100%; max-width:250px;"
+                  }))
+          </div>
+
+          <div class="mb-4">
+              @(Html.Kendo()
+                  .TextBoxFor(m => m.Debilidad)
+                  .HtmlAttributes(new {
+                      Placeholder="Debilidad (opcional)",
+                      @class = "k-textbox",
+                      style = "width:100%; max-width:250px;"
+                  }))
+          </div>
+
+          <div class="mb-5">
+              @(Html.Kendo()
+                  .TextBoxFor(m => m.Enemigo)
+                  .Placeholder("Enemigo principal (opcional)")
+                  .HtmlAttributes(new {
+                      Placeholder = "Enemigo principal (opcional)",
+                      @class = "k-textbox",
+                      style = "width:100%; max-width:250px;"
+                  }))
+          </div>
+
+          <div class="text-center">
+            <button type="submit"
+                    class="k-button k-primary me-3"
+                    style="min-width:120px;">
+                Crear
+            </button>
+            <a asp-action="Index"
+               class="k-button k-secondary"
+               style="min-width:120px;">
+                Cancelar
+            </a>
+          </div>
+      }
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

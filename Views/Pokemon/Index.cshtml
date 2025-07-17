@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SuperHeroApp.Models.Pokemon>
+@using Kendo.Mvc.UI
+
+@{
+    ViewData["Title"] = "Pokémon";
+    Layout = "_Layout";
+}
+
+<h1 class="text-center mb-5">@ViewData["Title"]</h1>
+<p class="text-center text-muted mb-4">
+    Total Pokémon cargados: @Model.Count()
+</p>
+
+@(Html.Kendo().Grid(Model)
+    .Name("PokemonGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Name)
+               .Title("Nombre")
+               .Width(150);
+
+        columns.Bound(p => p.Type)
+               .Title("Tipo")
+               .Width(120);
+
+        columns.Bound(p => p.ImageUrl)
+               .Title("Sprite")
+               .ClientTemplate(
+                   "<img src='#=ImageUrl#' alt='#=Name#' style='height:60px;' />"
+               )
+               .Width(120);
+    })
+    .Pageable(p => p.Refresh(true).PageSizes(new[] { 5, 10, 20 }))
+    .Sortable()
+    .Filterable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:400px;" })
+    .Deferred()
+)
+<div class="text-center mt-4">
+    <a asp-controller="SuperHeroes"
+       asp-action="Index"
+       class="k-button k-secondary"
+       style="min-width:140px;">
+        Volver a SuperHéroes
+    </a>
+</div>
+@section Scripts {
+    <script>
+   
+    </script>
+}

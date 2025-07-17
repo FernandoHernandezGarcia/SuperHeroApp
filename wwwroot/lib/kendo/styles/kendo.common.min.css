@@ -1,0 +1,147 @@
+﻿/* kendo.common.min.css – Immitación ligera de Telerik Kendo UI */
+
+/* RESET Y UTILIDADES BÁSICAS */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.k-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+    background: #f5f5f5;
+}
+
+/* TARJETA */
+.k-card {
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.k-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* CENTRADO Y TAMAÑO DE TARJETA */
+.k-card-centered {
+    max-width: 380px;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    margin: 0.5rem;
+}
+
+/* FORMATO DE FORMULARIO */
+.k-form {
+    display: block;
+}
+
+.k-form-field {
+    margin-bottom: 1.25rem;
+}
+
+/* CAMPOS DE TEXTO */
+.k-textbox {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    transition: border-color 0.2s ease;
+}
+
+    .k-textbox:focus {
+        outline: none;
+        border-color: #1e88e5; /* color primario tipo “superhéroe” */
+        box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.2);
+    }
+
+    /* PLACEHOLDER */
+    .k-textbox::placeholder {
+        color: #888;
+        opacity: 1;
+    }
+
+    .k-textbox::-ms-input-placeholder {
+        color: #888;
+    }
+
+    .k-textbox::-webkit-input-placeholder {
+        color: #888;
+    }
+
+    .k-textbox::-moz-placeholder {
+        color: #888;
+        opacity: 1;
+    }
+
+    .k-textbox:-ms-input-placeholder {
+        color: #888;
+    }
+
+/* BOTONES */
+.k-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #444;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+    .k-button:hover {
+        background-color: #ddd;
+        border-color: #bbb;
+    }
+
+    .k-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.3);
+    }
+
+    /* BOTÓN PRIMARIO “SUPERHÉROE” */
+    .k-button.k-primary {
+        color: #fff;
+        background-color: #1e88e5;
+        border-color: #1565c0;
+    }
+
+        .k-button.k-primary:hover {
+            background-color: #1565c0;
+            border-color: #0d47a1;
+        }
+
+/* LLENA ANCHO */
+.k-width-full {
+    width: 100%;
+}
+
+/* ENCABEZADOS EN TARJETA */
+.k-card-header {
+    margin-bottom: 1rem;
+}
+
+/* TEXTO CENTRADO */
+.k-text-center {
+    text-align: center;
+}

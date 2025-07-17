@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@progress/kendo-ui@2025.2.702",
+      "destination": "wwwroot/lib/kendo",
+      "files": [
+        "css/kendo.common.min.css",
+        "css/kendo.default-v2.min.css",
+        "js/kendo.all.min.js",
+        "js/kendo.aspnetmvc.min.js"
+      ]
+    }
+  ]
+}

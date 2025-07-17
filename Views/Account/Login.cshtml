@@ -1,0 +1,57 @@
+﻿@model SuperHeroApp.Models.LoginViewModel
+@using Kendo.Mvc.UI
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_Layout";
+}
+
+<div class="k-center-container">
+  <div class="k-card k-shadow k-card-centered">
+    <div class="k-card-header k-text-center mb-4">
+      <h2>Iniciar sesión</h2>
+    </div>
+    <div class="k-card-body">
+      @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "k-form" }))
+      {
+        <div class="k-form-field">
+          @(Html.Kendo()
+                .TextBoxFor(m => m.Email)
+                
+                .HtmlAttributes(new { 
+                    placeholder = "Correo electrónico",
+                    type = "email", 
+                    required = "required", 
+                    @class = "k-textbox" 
+                }))
+        </div>
+
+        <div class="k-form-field">
+          @(Html.Kendo()
+                .TextBoxFor(m => m.Password)
+                
+                .HtmlAttributes(new {
+                    Placeholder = "Contraseña",
+                    type = "password",
+                    required = "required",
+                    @class = "k-textbox"
+                }))
+        </div>
+
+        <div class="k-form-field">
+          @(Html.Kendo()
+                .Button()
+                .Name("btnLogin")
+                .Content("Iniciar sesión")
+                .HtmlAttributes(new {
+                    type = "submit",
+                    @class = "k-button k-primary k-width-full"
+                }))
+        </div>
+      }
+    </div>
+  </div>
+</div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}  

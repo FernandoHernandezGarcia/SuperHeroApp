@@ -1,0 +1,89 @@
+﻿@model IEnumerable<SuperHeroApp.Models.SuperHero>
+@using Kendo.Mvc.UI
+
+@{
+    ViewData["Title"] = "Lista de SuperHéroes";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>
+    <a href="@Url.Action("Create", "SuperHeroes")"
+       class="k-button k-primary">
+        Crear nuevo héroe
+    </a>
+</p>
+
+@(Html.Kendo().Grid(Model)
+    .Name("HeroesGrid")
+    .Columns(cols =>
+    {
+        cols.Bound(h => h.Nombre).Title("Nombre");
+        cols.Bound(h => h.Poder).Title("Poder");
+        cols.Bound(h => h.Debilidad).Title("Debilidad");
+        cols.Bound(h => h.Enemigo).Title("Enemigo");
+
+        cols.Command(cmd =>
+        {
+            cmd.Custom("Editar")
+               .Text("Editar")
+               .Click("onEdit");
+
+            cmd.Custom("Borrar")
+               .Text("Borrar")
+               .Click("onDelete");
+        })
+        .Title("Acciones")
+        .Width(180);
+    })
+
+    .Pageable(p => p.Refresh(true).PageSizes(new[] { 5, 10, 20 }))
+    .Sortable()
+    .Filterable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:400px;" })
+    .Deferred()
+)
+
+
+<div class="text-center mt-5">
+    <a asp-controller="Pokemon"
+       asp-action="Index"
+       class="k-button k-warning"
+       style="min-width:140px;">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
+             alt="Poké Ball"
+             style="height:20px; vertical-align:middle; margin-right:8px;" />
+        Ver Pokémon
+    </a>
+</div>
+
+@section Scripts {
+    <script>
+        // Crear
+        $("#btnCreate").click(function() {
+            window.location.href = "@Url.Action("Create", "SuperHeroes")";
+        });
+
+        // Editar
+        function onEdit(e) {
+            e.preventDefault();
+            var grid = $("#HeroesGrid").data("kendoGrid");
+            var item = grid.dataItem($(e.currentTarget).closest("tr"));
+            window.location.href = "@Url.Action("Edit", "SuperHeroes")/" + item.Id;
+        }
+
+        // Borrar
+        function onDelete(e) {
+            e.preventDefault();
+            var grid = $("#HeroesGrid").data("kendoGrid");
+            var item = grid.dataItem($(e.currentTarget).closest("tr"));
+            if (confirm("¿Eliminar a " + item.Nombre + "?")) {
+                window.location.href = "@Url.Action("Delete", "SuperHeroes")/" + item.Id;
+            }
+        }
+    </script>
+}
+
+
+

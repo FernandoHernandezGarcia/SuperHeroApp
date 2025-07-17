@@ -1,0 +1,63 @@
+﻿@model SuperHeroApp.Models.RegisterViewModel
+@using Kendo.Mvc.UI
+
+@{
+    ViewData["Title"] = "Registro";
+    Layout = "_Layout";
+}
+
+<div class="k-center-container">
+  <div class="k-card k-shadow k-card-centered">
+    <div class="k-card-header k-text-center mb-4">
+      <h2>Registro</h2>
+    </div>
+    <div class="k-card-body">
+      @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "k-form" }))
+      {
+        <div class="k-form-field">
+          @(Html.Kendo()
+                .TextBoxFor(m => m.Nombre)
+                .HtmlAttributes(new {
+                    Placeholder = "Nombre completo",
+                    type = "text",
+                    required = "required",
+                    @class = "k-textbox"
+                }))
+        </div>
+
+        <div class="k-form-field">
+          @(Html.Kendo()
+                .TextBoxFor(m => m.Email)
+                .HtmlAttributes(new {
+                    Placeholder = "Correo electrónico",
+                    type = "email",
+                    required = "required",
+                    @class = "k-textbox"
+                }))
+        </div>
+
+        <div class="k-form-field">
+          @(Html.Kendo()
+                .TextBoxFor(m => m.Password)
+                .HtmlAttributes(new {
+                    Placeholder = "Contraseña",
+                    type = "password",
+                    required = "required",
+                    @class = "k-textbox"
+                }))
+        </div>
+
+        <div class="k-form-field">
+          @(Html.Kendo()
+                .Button()
+                .Name("btnRegister")
+                .Content("Registrar")
+                .HtmlAttributes(new {
+                    type = "submit",
+                    @class = "k-button k-primary k-width-full"
+                }))
+        </div>
+      }
+    </div>
+  </div>
+</div>
