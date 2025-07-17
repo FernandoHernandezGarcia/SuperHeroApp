@@ -73,7 +73,7 @@ Se pasan a la vista y se renderizan en un Grid de Kendo UI con binding local.
 
 CAPTURAS DE PANTALLA
 ### 🦸‍♂️ Lista de SuperHéroes  
-![SuperHéroes](./screenshots/superheroes-list.png)
+![SuperHéroes](screenshots/superheroes-list.png)
 
 ### ➕ Crear nuevo héroe  
 ![Formulario Crear](./screenshots/Create.png)
